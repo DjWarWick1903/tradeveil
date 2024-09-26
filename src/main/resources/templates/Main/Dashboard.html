@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Tradeveile - Dashboard</title>
+</head>
+    <body>
+        <h1>Dashboard</h1>
+        <p>Welcome [[${fullName}]]</p>
+        <form action="#" th:action="@{/dashboard}" th:object="${stocks}" method="get">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="dashboardData  : ${stocks}">
+                            <td>
+                                <a th:href="toBeCreated" th:text="${dashboardData.stock.symbol}">Symbol</a>
+                            </td>
+                            <td>
+                                <a th:href="toBeCreated" th:text="${dashboardData.stock.name}">Title</a>
+                            </td>
+                            <td th:text="${dashboardData.price}">Price</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            <input type="submit" id="reset" th:value="Refresh">
+        </form>
+    </body>
+</html>

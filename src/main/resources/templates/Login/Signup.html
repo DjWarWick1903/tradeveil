@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Tradeveile - Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <div th:if="${error}">
+        <p style="color:red" th:text="*{error}"/>
+    </div>
+
+    <form action="#" method="post" th:action="@{/signup/create}" th:object="${account}">
+        <h1>Personal data</h1>
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" th:field="*{user.firstName}" />
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" th:field="*{user.lastName}">
+        </div>
+
+        <br><h1>Account data</h1>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:field="*{email}" />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" th:field="*{password}">
+        </div>
+
+        <input type="submit" value="Sign Up"/>
+    </form>
+
+    <form action="#" method="get" th:action="@{/login}">
+        <input type="submit" value="Login"/>
+    </form>
+</body>
+</html>
